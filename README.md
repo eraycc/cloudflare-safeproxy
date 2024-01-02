@@ -1,12 +1,12 @@
 # cloudflare-safeproxy
 cloudflare全能加密安全代理，给你的cloudflare代理设置一个密码，避免被恶意刷流量和一些不安全的代理访问
 
-# name cloudflare安全代理
-# author: eray
-# version: v1.0
-# blog: blog.eray.cc
-# email: admin@eray.cc
-# desp: 本项目可以给cf代理设置一个密码，使代理更安全，调用更方便
+## name cloudflare安全代理
+## author: eray
+## version: v1.0
+## blog: blog.eray.cc
+## email: admin@eray.cc
+## desp: 本项目可以给cf代理设置一个密码，使代理更安全，调用更方便
 
 # config set:
 ## 需要替换：
