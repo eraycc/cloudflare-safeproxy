@@ -27,8 +27,14 @@ addEventListener('fetch', event => {
 })
 
 async function handleRequest(request) {
-	const url = new URL(request.url);
 
+	const url = new URL(request.url);
+	
+	// Check if some api direct browse, the path should be hard to guess, u can comment it out if you don't need it
+	if (url.pathname.includes('/your-safe-api-prefix/')){
+		return handleApiRequest(request);
+	}
+	
 	// Check if the request is for password verification
 	if (url.pathname === '/your-pwd-verify-path' && request.method === 'POST') {
 		const password = await request.text();
@@ -51,12 +57,7 @@ async function handleRequest(request) {
 	const savedPassword = request.headers.get('Cookie');
 	
 	if (!savedPassword) {
-		// Check if some api direct browse, the path should be hard to guess, u can comment it out if you don't need it
-		if (url.pathname.includes('/your-safe-api-prefix/')){
-			return handleApiRequest(request);
-		}else{
-			return createPasswordPage();
-		}
+		return createPasswordPage();
 	}
 	
 	//if exists cookie but is not pwd
@@ -67,7 +68,6 @@ async function handleRequest(request) {
 			return createPasswordPage();
 		}
 	}
-	// Check if password cookie exists
 
 	// Check if accessing path
 	if (url.pathname === '/' || url.pathname === '/proxy/' || url.pathname === '/proxy') {
