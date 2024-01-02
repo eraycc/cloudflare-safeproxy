@@ -6,7 +6,6 @@ cloudflare全能加密安全代理，给你的cloudflare代理设置一个密码
 ## author: eray
 ## version: v1.0
 ## blog: blog.eray.cc
-## email: admin@eray.cc
 ## desp: 本项目可以给cf代理设置一个密码，使代理更安全，调用更方便
 
 # config set:
