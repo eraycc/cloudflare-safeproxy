@@ -1,0 +1,2 @@
+# cloudflare-safeproxy
+cloudflare全能加密安全代理，给你的cloudflare代理设置一个密码，避免被恶意刷流量和一些不安全的代理访问
