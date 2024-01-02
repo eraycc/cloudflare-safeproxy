@@ -15,7 +15,7 @@ cloudflare全能加密安全代理，给你的cloudflare代理设置一个密码
 ```
 /your-pwd-verify-path
 ```
-### 越权Api代理前缀路径[用于代理openai等api]（可以直接注释删除，不使用）:
+### 越权Api代理前缀路径[用于代理openai等api]（可以直接注释删除，不使用）如需使用可设置成复杂的前缀:
 ```
 /your-safe-api-prefix/
 ```
