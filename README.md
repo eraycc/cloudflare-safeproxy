@@ -28,3 +28,6 @@ your-access-pwd
 - 创建workers route
 - 复制并修改本项目中的worker.js代码
 - deploy and enjoy it
+
+# 本项目基于以下项目修改：
+https://github.com/gaboolic/cloudflare-reverse-proxy
