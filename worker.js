@@ -29,12 +29,12 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
 
 	const url = new URL(request.url);
-	
+
 	// Check if some api direct browse, the path should be hard to guess, u can comment it out if you don't need it
-	if (url.pathname.includes('/your-safe-api-prefix/')){
+	if (url.pathname.includes('/your-safe-api-prefix/')) {
 		return handleApiRequest(request);
 	}
-	
+
 	// Check if the request is for password verification
 	if (url.pathname === '/your-pwd-verify-path' && request.method === 'POST') {
 		const password = await request.text();
@@ -55,13 +55,13 @@ async function handleRequest(request) {
 
 	// Check if password cookie exists
 	const savedPassword = request.headers.get('Cookie');
-	
+
 	if (!savedPassword) {
 		return createPasswordPage();
 	}
-	
+
 	//if exists cookie but is not pwd
-	if(savedPassword){
+	if (savedPassword) {
 		const parsedCookies = parseCookies(savedPassword);
 		const passwordValue = parsedCookies['password'];
 		if (!verifyPassword(passwordValue)) {
@@ -135,11 +135,13 @@ function fixUrl(url) {
 
 // parse cookie
 function parseCookies(cookieString) {
-  return cookieString.split(';').reduce((cookies, cookie) => {
-    const [name, value] = cookie.trim().split('=');
-    cookies[name] = value;
-    return cookies;
-  }, {});
+	return cookieString.split(';')
+		.reduce((cookies, cookie) => {
+			const [name, value] = cookie.trim()
+				.split('=');
+			cookies[name] = value;
+			return cookies;
+		}, {});
 }
 
 // Create the password verification page
@@ -153,47 +155,54 @@ function createPasswordPage() {
     </head>
     <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+    background-color: #fbfbfb;
+    font-family: Arial, sans-serif;
+  }
 
-    h1 {
-      text-align: center;
-    }
+  h1 {
+    text-align: center;
+    color: #444;
+  }
 
-    #password-form {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 300px;
-      text-align: center;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+  form {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    padding: 2rem;
+    border-radius: 8px;
+  }
 
-    button {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  input {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
 
-    button:hover {
-      background-color: #0056b3;
-    }
+  button {
+    padding: 15px;
+    background-color: #0288d1;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #039BE5;
+  }
     </style>
     <body>
       <h1>密码验证</h1>
@@ -289,7 +298,7 @@ function createLandingPage() {
   button:hover {
     background-color: #039BE5;
   }
-</style>
+  </style>
     <meta charset="UTF-8">
     <title>安全访问</title>
   </head>
