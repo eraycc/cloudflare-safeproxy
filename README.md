@@ -31,3 +31,4 @@ your-access-pwd
 
 # 本项目基于以下项目修改：
 https://github.com/gaboolic/cloudflare-reverse-proxy
+https://github.com/1234567Yang/cf-proxy-ex
