@@ -3,7 +3,7 @@ name: cloudflare安全代理
 author: eray
 version: v1.0
 blog: blog.eray.cc
-email: admin@eray.cc
+email: admin#eray.cc
 
 desp: 本项目可以给cf代理设置一个密码，使代理更安全，调用更方便
 
